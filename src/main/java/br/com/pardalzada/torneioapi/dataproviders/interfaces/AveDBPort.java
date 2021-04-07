@@ -18,4 +18,8 @@ public interface AveDBPort {
     void deleteById(Long id);
 
 	List<AveEntity> findByCriadorDB(CriadorDB criadorDB);
+	
+	List<AveEntity> findByCriadorDBNovo(CriadorDB criadorDB);
+	
+	List<AveEntity> findByCriadorDBAntigo(CriadorDB criadorDB);
 }

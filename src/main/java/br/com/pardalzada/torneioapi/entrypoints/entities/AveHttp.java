@@ -19,4 +19,6 @@ public class AveHttp {
     private Boolean ativo;
     private EspecieHttp especieHttp;
     private CriadorHttp criadorHttp;
+    private CriadorHttp criadorHttpAntigo;
+    private CriadorHttp criadorHttpNovo;
 }

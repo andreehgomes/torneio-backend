@@ -36,4 +36,12 @@ public class AveDB {
     @ManyToOne
     @JoinColumn(name = "criador_codigo", referencedColumnName = "codigo")
     private CriadorDB criadorDB;
+    
+    @ManyToOne
+    @JoinColumn(name = "criador_codigo_antigo", referencedColumnName = "codigo")
+    private CriadorDB criadorDBAntigo;
+    
+    @ManyToOne
+    @JoinColumn(name = "criador_codigo_novo", referencedColumnName = "codigo")
+    private CriadorDB criadorDBNovo;
 }

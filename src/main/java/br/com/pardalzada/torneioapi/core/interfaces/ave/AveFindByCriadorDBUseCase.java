@@ -9,4 +9,8 @@ public interface AveFindByCriadorDBUseCase {
 
 	List<AveEntity> findByCriadorDB(CriadorDB criadorDB);
 	
+	List<AveEntity> findByCriadorDBNovo(CriadorDB criadorDB);
+	
+	List<AveEntity> findByCriadorDBAntigo(CriadorDB criadorDB);
+	
 }

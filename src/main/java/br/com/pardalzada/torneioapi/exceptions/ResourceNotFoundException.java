@@ -11,7 +11,8 @@ public class ResourceNotFoundException extends RuntimeException {
     }
     
     public ResourceNotFoundException(String cpf) {
-        super(String.format("Não existe o elemento com o CPF %d.", cpf));
+//       super(String.format("Não existe o elemento com o CPF %d.", cpf));
+       super("Não existe o elemento com o CPF " + cpf);
     }
     
     public ResourceNotFoundException(Object object) {

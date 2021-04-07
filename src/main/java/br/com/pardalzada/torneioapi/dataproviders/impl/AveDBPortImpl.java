@@ -20,36 +20,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AveDBPortImpl implements AveDBPort {
 
-    private final AveDBMapper aveDBMapper;
-    private final AveDBRepository aveDBRepository;
+	private final AveDBMapper aveDBMapper;
+	private final AveDBRepository aveDBRepository;
 
-    @Override
-    public List<AveEntity> findAll() {
-        List<AveDB> aveDBList = aveDBRepository.findAll();
+	@Override
+	public List<AveEntity> findAll() {
+		List<AveDB> aveDBList = aveDBRepository.findAll();
 
-        if (!aveDBList.isEmpty()) {
-            return aveDBMapper.toList(aveDBList);
-        } else {
-            throw new ListResourceEmptyException();
-        }
-    }
-
-    @Override
-    public AveEntity findById(Long id) {
-        Optional<AveDB> aveDB = aveDBRepository.findById(id);
-        return aveDB.map(aveDBMapper::to).orElse(null);
-    }
-
-    @Override
-    public AveEntity findByNome(String nome) {
-        Optional<AveDB> aveDB = aveDBRepository.findByNome(nome);
-        return aveDB.map(aveDBMapper::to).orElse(null);
-    }
-    
-    @Override
-	public List<AveEntity> findByCriadorDB(CriadorDB criadorDB) {
-		List<AveDB> aveDBList = aveDBRepository.findByCriadorDB(criadorDB);
-		
 		if (!aveDBList.isEmpty()) {
 			return aveDBMapper.toList(aveDBList);
 		} else {
@@ -57,21 +34,66 @@ public class AveDBPortImpl implements AveDBPort {
 		}
 	}
 
-    @Override
-    public AveEntity createAndUpdate(AveEntity aveEntity) {
-        AveDB aveDB;
+	@Override
+	public AveEntity findById(Long id) {
+		Optional<AveDB> aveDB = aveDBRepository.findById(id);
+		return aveDB.map(aveDBMapper::to).orElse(null);
+	}
 
-        try {
-            aveDB = aveDBRepository.save(aveDBMapper.from(aveEntity));
-        } catch (Exception e) {
-            throw new RepositoryException();
-        }
+	@Override
+	public AveEntity findByNome(String nome) {
+		Optional<AveDB> aveDB = aveDBRepository.findByNome(nome);
+		return aveDB.map(aveDBMapper::to).orElse(null);
+	}
 
-        return aveDBMapper.to(aveDB);
-    }
+	@Override
+	public List<AveEntity> findByCriadorDB(CriadorDB criadorDB) {
+		List<AveDB> aveDBList = aveDBRepository.findByCriadorDB(criadorDB);
 
-    @Override
-    public void deleteById(Long id) {
-        aveDBRepository.deleteById(id);
-    }
+		if (!aveDBList.isEmpty()) {
+			return aveDBMapper.toList(aveDBList);
+		} else {
+			throw new ListResourceEmptyException();
+		}
+	}
+
+	@Override
+	public AveEntity createAndUpdate(AveEntity aveEntity) {
+		AveDB aveDB;
+
+		try {
+			aveDB = aveDBRepository.save(aveDBMapper.from(aveEntity));
+		} catch (Exception e) {
+			throw new RepositoryException();
+		}
+
+		return aveDBMapper.to(aveDB);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		aveDBRepository.deleteById(id);
+	}
+
+	@Override
+	public List<AveEntity> findByCriadorDBNovo(CriadorDB criadorDBNovo) {
+		List<AveDB> aveDBList = aveDBRepository.findByCriadorDBNovo(criadorDBNovo);
+
+		if (!aveDBList.isEmpty()) {
+			return aveDBMapper.toList(aveDBList);
+		} else {
+			throw new ListResourceEmptyException();
+		}
+	}
+	
+	@Override
+	public List<AveEntity> findByCriadorDBAntigo(CriadorDB criadorDBAntigo) {
+		List<AveDB> aveDBList = aveDBRepository.findByCriadorDBAntigo(criadorDBAntigo);
+
+		if (!aveDBList.isEmpty()) {
+			return aveDBMapper.toList(aveDBList);
+		} else {
+			throw new ListResourceEmptyException();
+		}
+	}
 }

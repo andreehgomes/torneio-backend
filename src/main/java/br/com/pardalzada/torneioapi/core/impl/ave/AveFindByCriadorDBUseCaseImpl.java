@@ -14,19 +14,40 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class AveFindByCriadorDBUseCaseImpl implements AveFindByCriadorDBUseCase {
-	
+
 	private final AveDBPort aveDBPort;
 
 	@Override
 	public List<AveEntity> findByCriadorDB(CriadorDB criadorDB) {
 		List<AveEntity> aveEntity = aveDBPort.findByCriadorDB(criadorDB);
-		
-		if(aveEntity != null) {
+
+		if (aveEntity != null) {
 			return aveEntity;
 		} else {
 			throw new ResourceNotFoundException(criadorDB);
 		}
 	}
+
+	@Override
+	public List<AveEntity> findByCriadorDBNovo(CriadorDB criadorDBNovo) {
+		List<AveEntity> aveEntity = aveDBPort.findByCriadorDBNovo(criadorDBNovo);
+
+		if (aveEntity != null) {
+			return aveEntity;
+		} else {
+			throw new ResourceNotFoundException(criadorDBNovo);
+		}
+	}
 	
+	@Override
+	public List<AveEntity> findByCriadorDBAntigo(CriadorDB criadorDBAntigo) {
+		List<AveEntity> aveEntity = aveDBPort.findByCriadorDBAntigo(criadorDBAntigo);
+
+		if (aveEntity != null) {
+			return aveEntity;
+		} else {
+			throw new ResourceNotFoundException(criadorDBAntigo);
+		}
+	}
 
 }

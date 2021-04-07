@@ -15,4 +15,8 @@ public interface AveDBRepository extends JpaRepository<AveDB, Long> {
     Optional<AveDB> findByNome(String nome);
     
     List<AveDB> findByCriadorDB(CriadorDB criadorDB);
+    
+    List<AveDB> findByCriadorDBNovo(CriadorDB criadorDBNovo);
+    
+    List<AveDB> findByCriadorDBAntigo(CriadorDB criadorDBNovo);
 }

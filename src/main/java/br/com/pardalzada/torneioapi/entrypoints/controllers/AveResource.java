@@ -59,6 +59,26 @@ public class AveResource {
 		log.info("Lista de aves gerada com sucesso");
 		return aveHttpMapper.fromList(aveEntityList);
 	}
+	
+	@ApiOperation(value = "Listar aves pro criador")
+	@GetMapping("/criador-novo")
+	public List<AveHttp> findByCriadorDBNovo(@RequestHeader HttpHeaders httpHeaders){
+		Gson gson = new Gson();
+		CriadorDB criadorDB = gson.fromJson(httpHeaders.get("criador").get(0), CriadorDB.class);
+		List<AveEntity> aveEntityList = aveFindByCriadorDBUseCase.findByCriadorDBNovo(criadorDB);
+		log.info("Lista de aves transferidas pendentes gerada com sucesso");
+		return aveHttpMapper.fromList(aveEntityList);
+	}
+	
+	@ApiOperation(value = "Listar aves pro criador")
+	@GetMapping("/criador-antigo")
+	public List<AveHttp> findByCriadorDBAntigo(@RequestHeader HttpHeaders httpHeaders){
+		Gson gson = new Gson();
+		CriadorDB criadorDB = gson.fromJson(httpHeaders.get("criador").get(0), CriadorDB.class);
+		List<AveEntity> aveEntityList = aveFindByCriadorDBUseCase.findByCriadorDBAntigo(criadorDB);
+		log.info("Lista de aves transferidas pendentes gerada com sucesso");
+		return aveHttpMapper.fromList(aveEntityList);
+	}
 
 	@ApiOperation(value = "Criar nova ave")
 	@PostMapping
