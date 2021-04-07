@@ -34,6 +34,7 @@ public class AveHttpMapper extends FromToMapper<AveHttp, AveEntity> {
                     .especieHttp(especieHttpMapper.fromNonNull(aveEntity.getEspecieEntity()))
                     .criadorHttpAntigo(criadorHttpMapper.fromNonNull(aveEntity.getCriadorEntityAntigo()))
                     .criadorHttpNovo(criadorHttpMapper.fromNonNull(aveEntity.getCriadorEntityNovo()))
+                    .statusTransferencia(aveEntity.getStatusTransferencia())
                     .build();
     	}else {
     		return AveHttp.builder()
@@ -44,6 +45,7 @@ public class AveHttpMapper extends FromToMapper<AveHttp, AveEntity> {
                     .ativo(aveEntity.getAtivo())
                     .especieHttp(especieHttpMapper.fromNonNull(aveEntity.getEspecieEntity()))
                     .criadorHttp(criadorHttpMapper.fromNonNull(aveEntity.getCriadorEntity()))
+                    .statusTransferencia(aveEntity.getStatusTransferencia())
                     .build();
     	}
     }
@@ -63,6 +65,7 @@ public class AveHttpMapper extends FromToMapper<AveHttp, AveEntity> {
                     .especieEntity(especieHttpMapper.toNonNull(aveHttp.getEspecieHttp()))
                     .criadorEntityAntigo(criadorHttpMapper.toNonNull(aveHttp.getCriadorHttpAntigo()))
                     .criadorEntityNovo(criadorHttpMapper.toNonNull(aveHttp.getCriadorHttpNovo()))
+                    .statusTransferencia(aveHttp.getStatusTransferencia())
                     .build();
     	} else {
     		return AveEntity.builder()
@@ -73,6 +76,7 @@ public class AveHttpMapper extends FromToMapper<AveHttp, AveEntity> {
                     .ativo(aveHttp.getAtivo())
                     .especieEntity(especieHttpMapper.toNonNull(aveHttp.getEspecieHttp()))
                     .criadorEntity(criadorHttpMapper.toNonNull(aveHttp.getCriadorHttp()))
+                    .statusTransferencia(aveHttp.getStatusTransferencia())
                     .build();
     	}
     	

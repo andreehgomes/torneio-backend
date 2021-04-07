@@ -21,4 +21,5 @@ public class AveHttp {
     private CriadorHttp criadorHttp;
     private CriadorHttp criadorHttpAntigo;
     private CriadorHttp criadorHttpNovo;
+    private String statusTransferencia;
 }

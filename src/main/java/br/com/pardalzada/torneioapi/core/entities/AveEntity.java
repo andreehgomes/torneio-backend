@@ -23,4 +23,5 @@ public class AveEntity {
     //Prencher para transferir a ave
     private CriadorEntity criadorEntityAntigo;
     private CriadorEntity criadorEntityNovo;
+    private String statusTransferencia;
 }

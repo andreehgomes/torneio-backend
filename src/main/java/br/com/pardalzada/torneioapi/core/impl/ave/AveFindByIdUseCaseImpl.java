@@ -17,7 +17,7 @@ public class AveFindByIdUseCaseImpl implements AveFindByIdUseCase {
     public AveEntity findById(Long id) {
         AveEntity aveEntity = aveDBPort.findById(id);
 
-        if (aveEntity != null) {
+        if (aveEntity != null) {        	
             return aveEntity;
         } else {
             throw new ResourceNotFoundException(id);

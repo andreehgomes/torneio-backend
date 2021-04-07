@@ -44,4 +44,7 @@ public class AveDB {
     @ManyToOne
     @JoinColumn(name = "criador_codigo_novo", referencedColumnName = "codigo")
     private CriadorDB criadorDBNovo;
+    
+    @Column(name = "status_transferencia")
+    private String statusTransferencia;
 }

@@ -31,6 +31,7 @@ public class AveDBMapper extends FromToMapper<AveDB, AveEntity> {
                     .ativo(aveEntity.getAtivo())
                     .criadorDB(criadorDBMapper.fromNonNull(aveEntity.getCriadorEntity()))
                     .especieDB(especieDBMapper.fromNonNull(aveEntity.getEspecieEntity()))
+                    .statusTransferencia(aveEntity.getStatusTransferencia())
                     .build();
     	} else {
     		return AveDB.builder()
@@ -42,6 +43,7 @@ public class AveDBMapper extends FromToMapper<AveDB, AveEntity> {
                     .criadorDBAntigo(criadorDBMapper.fromNonNull(aveEntity.getCriadorEntityAntigo()))
                     .criadorDBNovo(criadorDBMapper.fromNonNull(aveEntity.getCriadorEntityNovo()))
                     .especieDB(especieDBMapper.fromNonNull(aveEntity.getEspecieEntity()))
+                    .statusTransferencia(aveEntity.getStatusTransferencia())
                     .build();
     	}
         
@@ -60,6 +62,7 @@ public class AveDBMapper extends FromToMapper<AveDB, AveEntity> {
                     .ativo(aveDB.getAtivo())
                     .criadorEntity(criadorDBMapper.toNonNull(aveDB.getCriadorDB()))
                     .especieEntity(especieDBMapper.toNonNull(aveDB.getEspecieDB()))
+                    .statusTransferencia(aveDB.getStatusTransferencia())
                     .build();
     	} else {
     		return AveEntity.builder()
@@ -71,6 +74,7 @@ public class AveDBMapper extends FromToMapper<AveDB, AveEntity> {
                     .criadorEntityAntigo(criadorDBMapper.toNonNull(aveDB.getCriadorDBAntigo()))
                     .criadorEntityNovo(criadorDBMapper.toNonNull(aveDB.getCriadorDBNovo()))
                     .especieEntity(especieDBMapper.toNonNull(aveDB.getEspecieDB()))
+                    .statusTransferencia(aveDB.getStatusTransferencia())
                     .build();
     	}       
     }
