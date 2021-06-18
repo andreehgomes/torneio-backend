@@ -23,4 +23,5 @@ public class CriadorEntity {
     private AssociacaoEntity associacaoEntity;
     private EnderecoEntity enderecoEntity;
     private UsuarioEntity usuarioEntity;
+    private Boolean aceiteAssociacao;
 }

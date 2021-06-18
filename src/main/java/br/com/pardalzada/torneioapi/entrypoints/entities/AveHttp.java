@@ -22,4 +22,5 @@ public class AveHttp {
     private CriadorHttp criadorHttpAntigo;
     private CriadorHttp criadorHttpNovo;
     private String statusTransferencia;
+    private String sexo;
 }

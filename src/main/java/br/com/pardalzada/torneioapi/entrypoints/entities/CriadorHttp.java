@@ -23,4 +23,5 @@ public class CriadorHttp {
     private AssociacaoHttp associacaoHttp;
     private EnderecoHttp enderecoHttp;
     private UsuarioHttp usuarioHttp;
+    private Boolean aceiteAssociacao;
 }

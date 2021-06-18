@@ -26,24 +26,24 @@ public class AveDBMapper extends FromToMapper<AveDB, AveEntity> {
     		return AveDB.builder()
                     .codigo(aveEntity.getCodigo())
                     .nome(aveEntity.getNome())
-                    .medidaAnilha(aveEntity.getMedidaAnilha())
                     .numeroAnilha(aveEntity.getNumeroAnilha())
                     .ativo(aveEntity.getAtivo())
                     .criadorDB(criadorDBMapper.fromNonNull(aveEntity.getCriadorEntity()))
                     .especieDB(especieDBMapper.fromNonNull(aveEntity.getEspecieEntity()))
                     .statusTransferencia(aveEntity.getStatusTransferencia())
+                    .sexo(aveEntity.getSexo())
                     .build();
     	} else {
     		return AveDB.builder()
                     .codigo(aveEntity.getCodigo())
                     .nome(aveEntity.getNome())
-                    .medidaAnilha(aveEntity.getMedidaAnilha())
                     .numeroAnilha(aveEntity.getNumeroAnilha())
                     .ativo(aveEntity.getAtivo())
                     .criadorDBAntigo(criadorDBMapper.fromNonNull(aveEntity.getCriadorEntityAntigo()))
                     .criadorDBNovo(criadorDBMapper.fromNonNull(aveEntity.getCriadorEntityNovo()))
                     .especieDB(especieDBMapper.fromNonNull(aveEntity.getEspecieEntity()))
                     .statusTransferencia(aveEntity.getStatusTransferencia())
+                    .sexo(aveEntity.getSexo())
                     .build();
     	}
         
@@ -57,24 +57,24 @@ public class AveDBMapper extends FromToMapper<AveDB, AveEntity> {
     		return AveEntity.builder()
                     .codigo(aveDB.getCodigo())
                     .nome(aveDB.getNome())
-                    .medidaAnilha(aveDB.getMedidaAnilha())
                     .numeroAnilha(aveDB.getNumeroAnilha())
                     .ativo(aveDB.getAtivo())
                     .criadorEntity(criadorDBMapper.toNonNull(aveDB.getCriadorDB()))
                     .especieEntity(especieDBMapper.toNonNull(aveDB.getEspecieDB()))
                     .statusTransferencia(aveDB.getStatusTransferencia())
+                    .sexo(aveDB.getSexo())
                     .build();
     	} else {
     		return AveEntity.builder()
                     .codigo(aveDB.getCodigo())
                     .nome(aveDB.getNome())
-                    .medidaAnilha(aveDB.getMedidaAnilha())
                     .numeroAnilha(aveDB.getNumeroAnilha())
                     .ativo(aveDB.getAtivo())
                     .criadorEntityAntigo(criadorDBMapper.toNonNull(aveDB.getCriadorDBAntigo()))
                     .criadorEntityNovo(criadorDBMapper.toNonNull(aveDB.getCriadorDBNovo()))
                     .especieEntity(especieDBMapper.toNonNull(aveDB.getEspecieDB()))
                     .statusTransferencia(aveDB.getStatusTransferencia())
+                    .sexo(aveDB.getSexo())
                     .build();
     	}       
     }

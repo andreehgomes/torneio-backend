@@ -28,24 +28,24 @@ public class AveHttpMapper extends FromToMapper<AveHttp, AveEntity> {
     		return AveHttp.builder()
                     .codigo(aveEntity.getCodigo())
                     .nome(aveEntity.getNome())
-                    .medidaAnilha(aveEntity.getMedidaAnilha())
                     .numeroAnilha(aveEntity.getNumeroAnilha())
                     .ativo(aveEntity.getAtivo())
                     .especieHttp(especieHttpMapper.fromNonNull(aveEntity.getEspecieEntity()))
                     .criadorHttpAntigo(criadorHttpMapper.fromNonNull(aveEntity.getCriadorEntityAntigo()))
                     .criadorHttpNovo(criadorHttpMapper.fromNonNull(aveEntity.getCriadorEntityNovo()))
                     .statusTransferencia(aveEntity.getStatusTransferencia())
+                    .sexo(aveEntity.getSexo())
                     .build();
     	}else {
     		return AveHttp.builder()
                     .codigo(aveEntity.getCodigo())
                     .nome(aveEntity.getNome())
-                    .medidaAnilha(aveEntity.getMedidaAnilha())
                     .numeroAnilha(aveEntity.getNumeroAnilha())
                     .ativo(aveEntity.getAtivo())
                     .especieHttp(especieHttpMapper.fromNonNull(aveEntity.getEspecieEntity()))
                     .criadorHttp(criadorHttpMapper.fromNonNull(aveEntity.getCriadorEntity()))
                     .statusTransferencia(aveEntity.getStatusTransferencia())
+                    .sexo(aveEntity.getSexo())
                     .build();
     	}
     }
@@ -59,24 +59,24 @@ public class AveHttpMapper extends FromToMapper<AveHttp, AveEntity> {
     		return AveEntity.builder()
                     .codigo(aveHttp.getCodigo())
                     .nome(aveHttp.getNome())
-                    .medidaAnilha(aveHttp.getMedidaAnilha())
                     .numeroAnilha(aveHttp.getNumeroAnilha())
                     .ativo(aveHttp.getAtivo())
                     .especieEntity(especieHttpMapper.toNonNull(aveHttp.getEspecieHttp()))
                     .criadorEntityAntigo(criadorHttpMapper.toNonNull(aveHttp.getCriadorHttpAntigo()))
                     .criadorEntityNovo(criadorHttpMapper.toNonNull(aveHttp.getCriadorHttpNovo()))
                     .statusTransferencia(aveHttp.getStatusTransferencia())
+                    .sexo(aveHttp.getSexo())
                     .build();
     	} else {
     		return AveEntity.builder()
                     .codigo(aveHttp.getCodigo())
                     .nome(aveHttp.getNome())
-                    .medidaAnilha(aveHttp.getMedidaAnilha())
                     .numeroAnilha(aveHttp.getNumeroAnilha())
                     .ativo(aveHttp.getAtivo())
                     .especieEntity(especieHttpMapper.toNonNull(aveHttp.getEspecieHttp()))
                     .criadorEntity(criadorHttpMapper.toNonNull(aveHttp.getCriadorHttp()))
                     .statusTransferencia(aveHttp.getStatusTransferencia())
+                    .sexo(aveHttp.getSexo())
                     .build();
     	}
     	

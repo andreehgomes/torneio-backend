@@ -26,20 +26,40 @@ public class CriadorDBMapper extends FromToMapper<CriadorDB, CriadorEntity> {
                 .logradouro(criadorEntity.getEnderecoEntity().getLogradouro())
                 .numero(criadorEntity.getEnderecoEntity().getNumero())
                 .build();
+        
+        CriadorDB criador = null;
+        if(criadorEntity.getAssociacaoEntity() != null) {
+        	criador = CriadorDB.builder()
+                    .codigo(criadorEntity.getCodigo())
+                    .cpf(criadorEntity.getCpf())
+                    .ctf(criadorEntity.getCtf())
+                    .nome(criadorEntity.getNome())
+                    .rg(criadorEntity.getRg())
+                    .sobrenome(criadorEntity.getSobrenome())
+                    .telefone(criadorEntity.getTelefone())
+                    .ativo(criadorEntity.getAtivo())
+                    .enderecoDB(enderecoDB)
+                    .associacaoDB(associacaoDBMapper.fromNonNull(criadorEntity.getAssociacaoEntity()))
+                    .usuarioDB(usuarioDBMapper.fromNonNull(criadorEntity.getUsuarioEntity()))
+                    .aceiteAssociacao(criadorEntity.getAceiteAssociacao())
+                    .build();
+        }else {
+        	criador = CriadorDB.builder()
+                    .codigo(criadorEntity.getCodigo())
+                    .cpf(criadorEntity.getCpf())
+                    .ctf(criadorEntity.getCtf())
+                    .nome(criadorEntity.getNome())
+                    .rg(criadorEntity.getRg())
+                    .sobrenome(criadorEntity.getSobrenome())
+                    .telefone(criadorEntity.getTelefone())
+                    .ativo(criadorEntity.getAtivo())
+                    .enderecoDB(enderecoDB)
+                    .usuarioDB(usuarioDBMapper.fromNonNull(criadorEntity.getUsuarioEntity()))
+                    .aceiteAssociacao(criadorEntity.getAceiteAssociacao())
+                    .build(); 
+        }
 
-        return CriadorDB.builder()
-                .codigo(criadorEntity.getCodigo())
-                .cpf(criadorEntity.getCpf())
-                .ctf(criadorEntity.getCtf())
-                .nome(criadorEntity.getNome())
-                .rg(criadorEntity.getRg())
-                .sobrenome(criadorEntity.getSobrenome())
-                .telefone(criadorEntity.getTelefone())
-                .ativo(criadorEntity.getAtivo())
-                .enderecoDB(enderecoDB)
-                .associacaoDB(associacaoDBMapper.fromNonNull(criadorEntity.getAssociacaoEntity()))
-                .usuarioDB(usuarioDBMapper.fromNonNull(criadorEntity.getUsuarioEntity()))
-                .build();
+        return criador;
     }
 
     @Override
@@ -53,19 +73,39 @@ public class CriadorDBMapper extends FromToMapper<CriadorDB, CriadorEntity> {
                 .logradouro(criadorDB.getEnderecoDB().getLogradouro())
                 .numero(criadorDB.getEnderecoDB().getNumero())
                 .build();
+        
+        CriadorEntity criador = null;
+        if(criadorDB.getAssociacaoDB() != null) {
+        	criador = CriadorEntity.builder()
+                    .codigo(criadorDB.getCodigo())
+                    .cpf(criadorDB.getCpf())
+                    .ctf(criadorDB.getCtf())
+                    .nome(criadorDB.getNome())
+                    .rg(criadorDB.getRg())
+                    .sobrenome(criadorDB.getSobrenome())
+                    .telefone(criadorDB.getTelefone())
+                    .ativo(criadorDB.getAtivo())
+                    .enderecoEntity(enderecoEntity)
+                    .associacaoEntity(associacaoDBMapper.toNonNull(criadorDB.getAssociacaoDB()))
+                    .usuarioEntity(usuarioDBMapper.toNonNull(criadorDB.getUsuarioDB()))
+                    .aceiteAssociacao(criadorDB.getAceiteAssociacao())
+                    .build();
+        }else {
+        	criador = CriadorEntity.builder()
+                    .codigo(criadorDB.getCodigo())
+                    .cpf(criadorDB.getCpf())
+                    .ctf(criadorDB.getCtf())
+                    .nome(criadorDB.getNome())
+                    .rg(criadorDB.getRg())
+                    .sobrenome(criadorDB.getSobrenome())
+                    .telefone(criadorDB.getTelefone())
+                    .ativo(criadorDB.getAtivo())
+                    .enderecoEntity(enderecoEntity)
+                    .usuarioEntity(usuarioDBMapper.toNonNull(criadorDB.getUsuarioDB()))
+                    .aceiteAssociacao(criadorDB.getAceiteAssociacao())
+                    .build();
+        }
 
-        return CriadorEntity.builder()
-                .codigo(criadorDB.getCodigo())
-                .cpf(criadorDB.getCpf())
-                .ctf(criadorDB.getCtf())
-                .nome(criadorDB.getNome())
-                .rg(criadorDB.getRg())
-                .sobrenome(criadorDB.getSobrenome())
-                .telefone(criadorDB.getTelefone())
-                .ativo(criadorDB.getAtivo())
-                .enderecoEntity(enderecoEntity)
-                .associacaoEntity(associacaoDBMapper.toNonNull(criadorDB.getAssociacaoDB()))
-                .usuarioEntity(usuarioDBMapper.toNonNull(criadorDB.getUsuarioDB()))
-                .build();
+        return criador;
     }
 }

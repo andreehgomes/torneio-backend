@@ -20,7 +20,7 @@ public class AveDB {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "medida_anilha", nullable = false)
+    @Column(name = "medida_anilha")
     private String medidaAnilha;
 
     @Column(name = "numero_anilha", nullable = false)
@@ -47,4 +47,7 @@ public class AveDB {
     
     @Column(name = "status_transferencia")
     private String statusTransferencia;
+    
+    @Column(name = "sexo", nullable = false)
+    private String sexo;
 }

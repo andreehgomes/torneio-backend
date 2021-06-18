@@ -19,6 +19,7 @@ public class AveEntity {
     private Boolean ativo;
     private EspecieEntity especieEntity;
     private CriadorEntity criadorEntity;
+    private String sexo;
     
     //Prencher para transferir a ave
     private CriadorEntity criadorEntityAntigo;

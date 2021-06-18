@@ -63,4 +63,7 @@ public class CriadorDB {
     @ManyToOne
     @JoinColumn(name = "associado_codigo", referencedColumnName = "codigo")
     private AssociacaoDB associacaoDB;
+    
+    @Column(name = "aceite_associacao")
+    private Boolean aceiteAssociacao;
 }

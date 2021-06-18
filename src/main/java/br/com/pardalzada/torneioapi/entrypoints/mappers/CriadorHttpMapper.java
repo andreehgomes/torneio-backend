@@ -26,20 +26,41 @@ public class CriadorHttpMapper extends FromToMapper<CriadorHttp, CriadorEntity> 
                 .logradouro(criadorEntity.getEnderecoEntity().getLogradouro())
                 .numero(criadorEntity.getEnderecoEntity().getNumero())
                 .build();
-
-        return CriadorHttp.builder()
-                .codigo(criadorEntity.getCodigo())
-                .cpf(criadorEntity.getCpf())
-                .ctf(criadorEntity.getCtf())
-                .nome(criadorEntity.getNome())
-                .rg(criadorEntity.getRg())
-                .sobrenome(criadorEntity.getSobrenome())
-                .telefone(criadorEntity.getTelefone())
-                .ativo(criadorEntity.getAtivo())
-                .enderecoHttp(enderecoHttp)
-                .associacaoHttp(associacaoHttpMapper.fromNonNull(criadorEntity.getAssociacaoEntity()))
-                .usuarioHttp(usuarioHttpMapper.fromNonNull(criadorEntity.getUsuarioEntity()))
-                .build();
+        
+        CriadorHttp criador = null;
+        if(criadorEntity.getAssociacaoEntity() != null) {
+        	criador =  CriadorHttp.builder()
+	                    .codigo(criadorEntity.getCodigo())
+	                    .cpf(criadorEntity.getCpf())
+	                    .ctf(criadorEntity.getCtf())
+	                    .nome(criadorEntity.getNome())
+	                    .rg(criadorEntity.getRg())
+	                    .sobrenome(criadorEntity.getSobrenome())
+	                    .telefone(criadorEntity.getTelefone())
+	                    .ativo(criadorEntity.getAtivo())
+	                    .enderecoHttp(enderecoHttp)
+	                    .associacaoHttp(associacaoHttpMapper.fromNonNull(criadorEntity.getAssociacaoEntity()))
+	                    .usuarioHttp(usuarioHttpMapper.fromNonNull(criadorEntity.getUsuarioEntity()))
+	                    .aceiteAssociacao(criadorEntity.getAceiteAssociacao())
+	                    .build();
+        }else {
+        	criador =  CriadorHttp.builder()
+	                    .codigo(criadorEntity.getCodigo())
+	                    .cpf(criadorEntity.getCpf())
+	                    .ctf(criadorEntity.getCtf())
+	                    .nome(criadorEntity.getNome())
+	                    .rg(criadorEntity.getRg())
+	                    .sobrenome(criadorEntity.getSobrenome())
+	                    .telefone(criadorEntity.getTelefone())
+	                    .ativo(criadorEntity.getAtivo())
+	                    .enderecoHttp(enderecoHttp)
+	                    .usuarioHttp(usuarioHttpMapper.fromNonNull(criadorEntity.getUsuarioEntity()))
+	                    .aceiteAssociacao(criadorEntity.getAceiteAssociacao())
+	                    .build();        	
+        }
+        
+        return criador;
+        
     }
 
     @Override
@@ -54,18 +75,38 @@ public class CriadorHttpMapper extends FromToMapper<CriadorHttp, CriadorEntity> 
                 .numero(criadorHttp.getEnderecoHttp().getNumero())
                 .build();
 
-        return CriadorEntity.builder()
-                .codigo(criadorHttp.getCodigo())
-                .cpf(criadorHttp.getCpf())
-                .ctf(criadorHttp.getCtf())
-                .nome(criadorHttp.getNome())
-                .rg(criadorHttp.getRg())
-                .sobrenome(criadorHttp.getSobrenome())
-                .telefone(criadorHttp.getTelefone())
-                .ativo(criadorHttp.getAtivo())
-                .enderecoEntity(enderecoEntity)
-                .associacaoEntity(associacaoHttpMapper.toNonNull(criadorHttp.getAssociacaoHttp()))
-                .usuarioEntity(usuarioHttpMapper.toNonNull(criadorHttp.getUsuarioHttp()))
-                .build();
+        CriadorEntity criador = null;
+        if(criadorHttp.getAssociacaoHttp() != null) {
+        	criador = CriadorEntity.builder()
+                    .codigo(criadorHttp.getCodigo())
+                    .cpf(criadorHttp.getCpf())
+                    .ctf(criadorHttp.getCtf())
+                    .nome(criadorHttp.getNome())
+                    .rg(criadorHttp.getRg())
+                    .sobrenome(criadorHttp.getSobrenome())
+                    .telefone(criadorHttp.getTelefone())
+                    .ativo(criadorHttp.getAtivo())
+                    .enderecoEntity(enderecoEntity)
+                    .associacaoEntity(associacaoHttpMapper.toNonNull(criadorHttp.getAssociacaoHttp()))
+                    .usuarioEntity(usuarioHttpMapper.toNonNull(criadorHttp.getUsuarioHttp()))
+                    .aceiteAssociacao(criadorHttp.getAceiteAssociacao())
+                    .build();
+        }else {
+        	criador = CriadorEntity.builder()
+                    .codigo(criadorHttp.getCodigo())
+                    .cpf(criadorHttp.getCpf())
+                    .ctf(criadorHttp.getCtf())
+                    .nome(criadorHttp.getNome())
+                    .rg(criadorHttp.getRg())
+                    .sobrenome(criadorHttp.getSobrenome())
+                    .telefone(criadorHttp.getTelefone())
+                    .ativo(criadorHttp.getAtivo())
+                    .enderecoEntity(enderecoEntity)
+                    .usuarioEntity(usuarioHttpMapper.toNonNull(criadorHttp.getUsuarioHttp()))
+                    .aceiteAssociacao(criadorHttp.getAceiteAssociacao())
+                    .build();
+        }
+        
+        return criador;
     }
 }
