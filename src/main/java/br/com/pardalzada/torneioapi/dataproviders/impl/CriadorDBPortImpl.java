@@ -54,6 +54,17 @@ public class CriadorDBPortImpl implements CriadorDBPort {
 			throw new ListResourceEmptyException();
 		}
 	}
+	
+	@Override
+	public List<CriadorEntity> findByAssociacaoDBAndAceiteAssociacao(AssociacaoDB associacaoDB, Boolean aceiteAssociacao) {
+		List<CriadorDB> criadorDBList = criadorDBRepository.findByAssociacaoDBAndAceiteAssociacao(associacaoDB, aceiteAssociacao);
+		
+		if (!criadorDBList.isEmpty()) {
+			return criadorDBMapper.toList(criadorDBList);
+		} else {
+			throw new ListResourceEmptyException();
+		}
+	}
 
 	@Override
 	public CriadorEntity createAndUpdate(CriadorEntity criadorEntity) {
@@ -71,6 +82,6 @@ public class CriadorDBPortImpl implements CriadorDBPort {
 	@Override
 	public void deleteById(Long id) {
 		criadorDBRepository.deleteById(id);
-	}
+	}	
 
 }

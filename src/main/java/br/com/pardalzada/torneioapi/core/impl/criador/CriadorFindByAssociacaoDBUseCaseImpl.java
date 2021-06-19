@@ -28,4 +28,18 @@ public class CriadorFindByAssociacaoDBUseCaseImpl implements CriadorFindByAssoci
         }
 	}
 
+	@Override
+	public List<CriadorEntity> frinByAssociacaoDBAndaceiteAssociacao(AssociacaoDB associacaoDB, Boolean aceiteAssociacao) {
+		List<CriadorEntity> criadorEntity = criadorDBPort.findByAssociacaoDBAndAceiteAssociacao(associacaoDB, aceiteAssociacao);
+		
+		if (criadorEntity != null) {
+            return criadorEntity;
+        } else {
+            throw new ResourceNotFoundException(associacaoDB);
+        }
+		
+	}
+	
+	
+
 }

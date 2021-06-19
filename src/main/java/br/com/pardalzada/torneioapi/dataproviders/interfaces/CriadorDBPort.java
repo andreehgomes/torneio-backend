@@ -18,4 +18,6 @@ public interface CriadorDBPort {
     void deleteById(Long id);
 
 	List<CriadorEntity> findByAssociacaoDB(AssociacaoDB associacaoDB);
+	
+	List<CriadorEntity> findByAssociacaoDBAndAceiteAssociacao(AssociacaoDB associacaoDB, Boolean aceiteAssociacao);
 }
