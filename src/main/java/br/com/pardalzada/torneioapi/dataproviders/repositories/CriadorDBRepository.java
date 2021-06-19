@@ -14,4 +14,5 @@ public interface CriadorDBRepository extends JpaRepository<CriadorDB, Long> {
     Optional<CriadorDB> findByCpf(String cpf);
     
     List<CriadorDB> findByAssociacaoDB(AssociacaoDB associacaoDB);
+    List<CriadorDB> findByAssociacaoDBAndAceiteAssociacao(AssociacaoDB associacaoDB, Boolean aceiteAssociacao);
 }

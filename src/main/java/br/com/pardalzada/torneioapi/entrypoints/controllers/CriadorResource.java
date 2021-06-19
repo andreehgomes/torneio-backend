@@ -49,10 +49,17 @@ public class CriadorResource {
     
     @ApiOperation(value = "Listar criadores por Associação")
     @GetMapping("/associacao")
-    public List<CriadorHttp> findByAssociacaoDB(@RequestHeader HttpHeaders httpHeader) {    
+    public List<CriadorHttp> findByAssociacaoDB(@RequestHeader HttpHeaders httpHeader, @RequestHeader Boolean aceiteAssociacao) {    
     	Gson gson = new Gson();    	
     	AssociacaoDB associacaoDB = gson.fromJson(httpHeader.get("associacao").get(0), AssociacaoDB.class);
-    	List<CriadorEntity> criadorEntityList = criadorFindByAssociacaoDBUseCase.findByAssociacaoDB(associacaoDB);
+    	List<CriadorEntity> criadorEntityList = null;
+    	
+    	if(aceiteAssociacao == true || aceiteAssociacao == false) {
+    		criadorEntityList = criadorFindByAssociacaoDBUseCase.frinByAssociacaoDBAndaceiteAssociacao(associacaoDB, aceiteAssociacao);
+    	}else {
+    		criadorEntityList = criadorFindByAssociacaoDBUseCase.findByAssociacaoDB(associacaoDB);
+    	}    	
+    	
     	log.info("Lista de criadores gerado com sucesso");
     	return criadorHttpMapper.fromList(criadorEntityList);
     }
