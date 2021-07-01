@@ -17,7 +17,6 @@ public class CampeonatoHttpMapper extends FromToMapper<CampeonatoHttp, Campeonat
 		return  CampeonatoHttp.builder()
 				.codigo(campeonatoEntity.getCodigo())
 				.nome(campeonatoEntity.getNome())
-				.edicao(campeonatoEntity.getEdicao())
 				.associacaoHttp(associacaoHttpMapper.fromNonNull(campeonatoEntity.getAssociacaoEntity()))
 				.build();
 	}
@@ -27,7 +26,6 @@ public class CampeonatoHttpMapper extends FromToMapper<CampeonatoHttp, Campeonat
 		return CampeonatoEntity.builder()
 				.codigo(campeonatoHttp.getCodigo())
 				.nome(campeonatoHttp.getNome())
-				.edicao(campeonatoHttp.getEdicao())
 				.associacaoEntity(associacaoHttpMapper.toNonNull(campeonatoHttp.getAssociacaoHttp()))
 				.build();
 	}

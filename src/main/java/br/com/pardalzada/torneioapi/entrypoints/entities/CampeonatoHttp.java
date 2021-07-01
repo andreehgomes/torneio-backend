@@ -18,7 +18,6 @@ public class CampeonatoHttp {
 	@Id
 	private Long codigo;
 	private String nome;
-	private String edicao;
 	private AssociacaoHttp associacaoHttp;
 	
 }

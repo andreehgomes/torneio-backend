@@ -18,7 +18,6 @@ public class CampeonatoDBMapper extends FromToMapper<CampeonatoDB, CampeonatoEnt
 		return CampeonatoDB.builder()
 				.codigo(campeonatoEntity.getCodigo())
 				.nome(campeonatoEntity.getNome())
-				.edicao(campeonatoEntity.getEdicao())
 				.associacaoDB(associacaoDBMapper.fromNonNull(campeonatoEntity.getAssociacaoEntity()))
 				.build();
 	}
@@ -28,7 +27,6 @@ public class CampeonatoDBMapper extends FromToMapper<CampeonatoDB, CampeonatoEnt
 		return CampeonatoEntity.builder()
 				.codigo(campeonatoDB.getCodigo())
 				.nome(campeonatoDB.getNome())
-				.edicao(campeonatoDB.getEdicao())
 				.associacaoEntity(associacaoDBMapper.toNonNull(campeonatoDB.getAssociacaoDB()))
 				.build();
 		
