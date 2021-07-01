@@ -30,8 +30,6 @@ public class CampeonatoDB {
 	
 	@Column(name = "nome", nullable = false)
 	private String nome;
-	@Column(name = "edicao", nullable = false)
-	private String edicao;
 	
 	@ManyToOne
 	@JoinColumn(name = "associacao_codigo", referencedColumnName = "codigo")

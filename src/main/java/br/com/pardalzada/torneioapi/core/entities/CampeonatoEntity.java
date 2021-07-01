@@ -18,7 +18,6 @@ public class CampeonatoEntity {
 	@Id
 	private Long codigo;
 	private String nome;
-	private String edicao;
 	private AssociacaoEntity associacaoEntity;
 
 }
