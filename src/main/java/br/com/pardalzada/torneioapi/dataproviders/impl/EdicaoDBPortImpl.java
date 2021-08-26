@@ -10,6 +10,7 @@ import br.com.pardalzada.torneioapi.dataproviders.mappers.EdicaoDBMapper;
 import br.com.pardalzada.torneioapi.dataproviders.models.CampeonatoDB;
 import br.com.pardalzada.torneioapi.dataproviders.models.EdicaoDB;
 import br.com.pardalzada.torneioapi.dataproviders.repositories.EdicaoDBRepository;
+import br.com.pardalzada.torneioapi.exceptions.ListResourceEmptyException;
 import br.com.pardalzada.torneioapi.exceptions.RepositoryException;
 import lombok.RequiredArgsConstructor;
 
@@ -59,8 +60,13 @@ public class EdicaoDBPortImpl implements EdicaoDBPort {
 
 	@Override
 	public List<EdicaoEntity> findByCampeonatoDB(CampeonatoDB campeonatoDB) {
-		// TODO Auto-generated method stub
-		return null;
+		List<EdicaoDB> edicaoDBList = edicaoDBRepository.findByCampeonatoDB(campeonatoDB);
+		
+		if (!edicaoDBList.isEmpty()) {
+			return edicaoDBMapper.toList(edicaoDBList);
+		} else {
+			throw new ListResourceEmptyException();
+		}
 	}
 
 }
